@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.optimize import minimize
 from scipy.optimize import linear_sum_assignment
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 # called to initialize for each super group's combinations set
 def correlated_payoffs(n_sm, nplayers):
