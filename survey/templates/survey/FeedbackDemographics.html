@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %} Results and Final Survey{% endblock %}
+
+{% block content %}
+
+    <h4> Over the course of this game, your earned <strong>{{total_payoff}}</strong></h4>
+
+    <h4> You visited <strong>{{num_sm_visited }} </strong> slot machine(s). </h4>
+
+    <hr>
+
+    <h3> Please answer the following questions to receive the payoff amount displayed above:</h3>
+
+    {% formfield player.satisfaction %}
+
+    {% formfield player.age %}
+
+    {% formfield player.gender %}
+
+    {% formfield player.education %}
+
+    {% formfield player.geographic %}
+
+    {% formfield player.previous_mturk %}
+
+    {% if not statusActive %}
+        {% formfield player.reasoning_quit with label="Why did you quit the game early?" %}
+    {% endif %}
+
+    {% formfield player.reasoning_stay %}
+
+    {% if num_sm_visited > 1 %}
+        {% formfield player.reasoning_switch with label="When you switched planets, why did you switch planets?" %}
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'otree/WaitPage.html' %}
+{% load staticfiles otree_tags%}
+
+{% block form %}
+    <form action="" method=""post role="form" class="form">
+        {% csrf_token %}
+        <div>
+            <button class="btn btn-primary" id='finish_study' name="endofgame" value="{{ player.pk }}">
+                Finish the study
+            </button>
+        </div>
+        <br>
+    </form>
+{% endblock %}
+
+
+{% block content %}
+
+    <img src="{% static image_path %}" style="float:top; max-width:800px" height="200" width="80%"  />
+
+    {% if status == 1 %}
+        <h4> Transporting a space-shipment of elements from this planet ...</h4>
+    {% elif status == 2 %}
+        <h4> Currently scouring the final frontier to boldly invest elsewhere where no one has ever before...</h4>
+    {% elif status == 3 %}
+        <h4> Earthward bound! Currently reentering the atmosphere...</h4>
+    {% endif %}
+
+    {% if status != 3 %}
+        <h3>Once other participants have played, you will automatically proceed to the next page and begin the next round.</h3>
+    {% else %}
+        <h3> You will soon proceed to the survey portion of this experiment.</h3>
+        <p> Please complete the survey in order to receive your payment</p>
+    {% endif %}
+{% endblock %}

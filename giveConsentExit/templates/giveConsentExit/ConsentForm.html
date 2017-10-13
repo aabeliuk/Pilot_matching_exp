@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags%}
+
+{% block title %} Consent Form {% endblock %}
+
+{% block content %}
+        <p>In this HIT, you will participate in a simple decision-making study. It should take around 7-10 minutes to
+            complete.
+            You will receive a 20 cents show-up fee, and then earn additional money based on your decisions and the
+            decisions of others (up to $2).
+        </p>
+
+        <p> After you have finished the task, you will receive a completion code. Please return to the HIT on MTurk and
+            enter the completion code in the space provided to receive your credit.
+        </p>
+
+        <p> This HIT is part of an MIT scientific research project. Your decision to complete this HIT is voluntary.
+            There is no way for us to identify you. The only information we will have, in addition to your responses,
+            is the time at which you completed the survey. The results of the research may be presented at scientific
+            meetings or published in scientific journals. Choosing the 'I agree' option below indicates that you are at
+            least 18 years of age and agree to complete this HIT voluntarily.
+        </p>
+
+        <p> If you have questions about this research, please contact us at <a href="mailto:irahwan@mit.edu">irahwan@mit.edu</a>.</p>
+
+        {% formfield player.consent with label="Do you agree to complete this HIT voluntarily?" %}
+        {% next_button %}
+
+{% endblock %}

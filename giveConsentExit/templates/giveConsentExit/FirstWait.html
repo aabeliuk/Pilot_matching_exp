@@ -1,0 +1,19 @@
+{% extends 'otree/WaitPage.html' %}
+{% load staticfiles otree_tags%}
+
+{% block script %}
+    <script>
+        SECOND = 1000 // milliseconds
+        window.setTimeout(function(){
+        window.location.href = "https://www.google.com";
+        }, 1/5 * 60 * SECOND); // 1/5 minutes
+    </script>
+{% endblock %}
+
+
+{% block content %}
+    <h3> Currently {{ num_others }} participant(s) have entered this game.</h3>
+
+    <h3> Once {{ num_needed }} participants have arrived, the game will begin.</h3>
+
+{% endblock %}

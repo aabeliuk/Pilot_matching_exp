@@ -1,0 +1,52 @@
+
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags%}
+
+{% block title %} Interplanetary Mining Game in Progress {% endblock %}
+
+
+{% block content %}
+    {% block results %}
+
+        <h3>
+            Outcome of Round {{round_number }} out of {{ Constants.num_rounds }}
+        </h3>
+
+        <td style="align: center;">
+            <table >
+                <tr><td ><img src="{% static image_path %}" height="200" width="200" style="float:right; max-width:250px"/></td></tr>
+                <tr><td style="float:right"> Credit: {{ image_credit }} </td></tr>
+            </table>
+        </td>
+
+        {% comment %}
+        <h4> This round, the average payment earned by miners in your group was {{ average_pay_prev }}.</h4>
+        {% endcomment %}
+
+        <h4> This round, mining this planet delivered: <strong> {{player.payoff}} </strong> </h4>
+
+        <h5> So far, you have accumulated a total payment of <strong>{{balance}}.</strong></h5>
+
+        <h5> Returning to Earth at this point would give you a payment of <strong> {{ quit_pay|c }} </strong> ({{quit_pay_per_round|c}} per round). </h5>
+
+        <h4> You have one minute to submit a choice. Otherwise, you will return to Earth by default.</h4>
+
+        <div class=otree-timer> </div>
+
+        {% if self.round_number != Constants.num_rounds%}
+            <h3>
+                <strong>What is your decision for the next round?</strong>
+            </h3>
+            {% formfield player.offer_accepted with label="" %}
+            {% next_button %}
+            {% comment %}
+            {% include Constants.instructions_template %}
+            {% endcomment %}
+
+        {% else  %}
+            {% next_button %}
+        {% endif %}
+
+    {% endblock %}
+
+{% endblock %}

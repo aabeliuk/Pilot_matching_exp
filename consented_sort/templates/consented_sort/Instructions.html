@@ -1,0 +1,39 @@
+
+{% load otree_tags %}
+
+<div class="instructions well well-lg">
+
+    <h3 class="panel-sub-heading">
+        Instructions
+    </h3>
+
+    <p>
+        You are part of a group of {{ Constants.num_players_per_group }} space miners who have been selected to extract minerals from planets around the galaxy.
+        We have identified several planets suitable for mining, each containing varying amounts of elements.
+        Once you mine a planet, you will get a payment that depends on the resources found on that planet.
+        The only way to find your payment is by mining, and you will have {{Constants.num_rounds}} rounds to mine.
+    </p>
+
+    <p>
+        You will be assigned to a planet that will deliver a payout between 0 cents and {{ Constants.payout_max }} cents per round.
+         When each round begins, you will see the payment you received by mining that planet.
+        Then, you will have to choose between three options: stay at the same planet, move to a new planet, or return to Earth.
+    </p>
+
+    <p>
+        If you choose to <strong> stay at the same planet</strong>, on the next round you will mine the same planet as the previous round.
+        The payment from the same planet will fluctuate slightly across rounds, due to unexpected circumstances, such as solar storms.
+    </p>
+
+    <p>
+        If you choose to <strong> move to a new planet </strong>, on the next round you will be assigned by ground control to a new planet that is currently not being mined by the rest of the space miners and that you have not mined previously.
+    </p>
+
+    <p>
+        If you choose to <strong> return to Earth</strong> (or allow the game to timeout), you will receive a conciliatory payment for your services, and will not participate in subsequent rounds. This outside-option payment depends on how many rounds you have mined so far, The exact amount will be displayed next to the button. </p>
+    </p>
+    <p>
+        Each round, you will have {{ Constants.timeout_seconds }} seconds to make your decision. If you allow the game to timeout, by default, you will be sent to Earth.
+    </p>
+
+</div>
